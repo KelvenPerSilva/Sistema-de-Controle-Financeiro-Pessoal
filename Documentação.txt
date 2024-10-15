@@ -1,0 +1,129 @@
+1. DESCRIÇÃO DO PROJETO
+O Sistema de Controle Financeiro Pessoal é uma aplicação desenvolvida em .NET Core, cujo objetivo é ajudar o usuário a gerenciar suas finanças pessoais. O sistema permite o registro de receitas, despesas, categorização das transações, e geração de relatórios mensais. Ele oferece uma visão geral do fluxo de caixa do usuário através de gráficos e relatórios detalhados.
+
+FUNCIONALIDADES PRINCIPAIS:
+
+Cadastro de receitas e despesas.
+Categorização das transações por tipo (ex: alimentação, transporte).
+Gráficos de fluxo de caixa.
+Relatórios financeiros mensais.
+2. ESTRUTURA DO PROJETO
+CAMADAS DO SISTEMA:
+
+API (Back-end):
+
+Desenvolvida em ASP.NET Core como API RESTful para gerenciar transações financeiras.
+Utiliza Entity Framework Core para interação com o banco de dados.
+BANCO DE DADOS:
+
+SQL Server (ou outro banco de dados compatível).
+Tabelas para transações, categorias, e, se necessário, usuários.
+INTERFACE FRONT-END (opcional):
+
+Pode ser desenvolvida com Blazor, Razor Pages, React, ou Angular.
+Visualização de dados financeiros com gráficos (utilizando bibliotecas como Chart.js).
+RELATÓRIOS E GRÁFICOS:
+
+Geração de relatórios mensais.
+Visualização do fluxo de caixa com gráficos de entrada e saída.
+3. ESTRUTURA DA API
+MODELO DE DADOS (Transação)
+
+Transacao:
+Id: Identificador único (Primary Key).
+Tipo: Receita ou Despesa.
+Categoria: Exemplo: Alimentação, Transporte.
+Valor: Valor da transação.
+Data: Data em que a transação foi realizada.
+Descricao: Descrição opcional da transação.
+ENDPOINTS DISPONÍVEIS:
+
+GET /api/transacoes: Retorna todas as transações (receitas e despesas).
+POST /api/transacoes: Adiciona uma nova transação.
+PUT /api/transacoes/{id}: Atualiza uma transação existente.
+DELETE /api/transacoes/{id}: Exclui uma transação.
+4. BANCO DE DADOS
+Modelo de Tabela:
+
+Tabela Transacoes:
+Id: Identificador único.
+Tipo: Receita ou Despesa.
+Categoria: Exemplo: Alimentação, Transporte.
+Valor: Valor da transação.
+Data: Data da transação.
+Descricao: Descrição da transação.
+Tecnologia do Banco de Dados:
+
+SQL Server (ou outro banco compatível).
+Configuração da conexão no arquivo appsettings.json do projeto.
+5. INTERFACE FRONT-END (opcional)
+OPÇÕES:
+
+Blazor: Para um front-end completo em .NET.
+Razor Pages: Interface mais tradicional com ASP.NET MVC.
+React ou Angular: Para um front-end moderno integrado à API.
+FUNCIONALIDADES DA INTERFACE:
+
+Formulário para adicionar receitas e despesas.
+Tabela para listar transações.
+Gráficos de fluxo de caixa (utilizando Chart.js).
+Filtros para exibição das transações por categoria, tipo ou data.
+6. GRÁFICOS E RELATÓRIOS
+GRÁFICOS DE FLUXO DE CAIXA:
+
+Utiliza Chart.js para criar gráficos dinâmicos que mostram as entradas e saídas financeiras.
+RELATÓRIOS MENSAIS:
+
+Geração de relatórios mensais em PDF ou Excel.
+Inclui total de receitas, total de despesas, saldo final, e análise por categoria.
+7. SEGURANÇA E AUTENTICAÇÃO (opcional)
+Caso o sistema suporte múltiplos usuários, pode-se implementar autenticação e segurança:
+
+ASP.NET Core Identity: Sistema de autenticação embutido no .NET Core.
+JWT (JSON Web Tokens): Para proteger os endpoints da API e garantir que os dados de cada usuário estejam seguros.
+8. FERRAMENTAS E TECNOLOGIAS UTILIZADAS
+ASP.NET Core: Para o desenvolvimento da API RESTful.
+Entity Framework Core: Para interação com o banco de dados.
+SQL Server: Banco de dados relacional.
+Chart.js: Para criação de gráficos dinâmicos.
+Blazor / Razor Pages / React: Para o desenvolvimento do front-end (opcional).
+Visual Studio Code: IDE utilizada para o desenvolvimento.
+9. COMO INICIAR O PROJETO
+Clone o repositório:
+
+bash
+Copiar código
+git clone https://github.com/seu-usuario/controle-financeiro-pessoal.git
+Entre no diretório do projeto:
+
+bash
+Copiar código
+cd controle-financeiro-pessoal
+Restaurar pacotes NuGet:
+
+bash
+Copiar código
+dotnet restore
+Configure a string de conexão no arquivo appsettings.json.
+
+Rodar as migrações do banco de dados:
+
+bash
+Copiar código
+dotnet ef database update
+Inicie o servidor:
+
+bash
+Copiar código
+dotnet run
+10. PRÓXIMOS PASSOS
+Desenvolvimento da interface gráfica (se necessário).
+Adicionar gráficos dinâmicos para visualização do fluxo de caixa.
+Implementar melhorias nos relatórios financeiros.
+Realizar testes e ajustes contínuos para aperfeiçoar o sistema.
+11. LICENÇA
+Este projeto é licenciado sob a MIT License.
+
+OBSERVAÇÕES:
+Certifique-se de configurar corretamente a string de conexão com o banco de dados no arquivo appsettings.json.
+Caso implemente autenticação, garanta que a proteção de dados com JWT esteja configurada para garantir a segurança dos usuários.
